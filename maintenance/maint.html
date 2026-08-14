@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب صيانة | Smart IT Faculty</title>
+    <link rel="stylesheet" href="/maintenance/maintane.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Smart IT Faculty</span>
+            </div>
+            <div class="nav-user">
+                <span id="navDrName">...</span>
+                <div class="nav-avatar">
+                    <img src="/uploads/images/doctorprofileim.jpg" alt="Dr">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="side-header"><p>قائمة التحكم</p></div>
+            <nav class="side-links">
+                <a href="/docprofile/doctor.html" class="side-item">الملف الشخصي</a>
+                <a href="/syllabus/syll.html" class="side-item">المساقات</a>
+                <a href="/teaminstructor/team.html" class="side-item">زملاء الكلية </a>
+                <a href="/oficehours/oficeh.html" class="side-item">الساعات المكتبية</a>
+                <a href="/maintenance/maint.html" class="side-item active">طلبات الصيانة</a>
+                <a href="/loginform/login2.html" class="side-item">تسجيل الخروج </a>
+            </nav>
+        </aside>
+        <main class="content-area">
+            <section class="main-card">
+                
+                <div class="white-card maintenance-card">
+                    <h3>تقديم طلب صيانة جديد</h3>
+                    <form id="maintenanceForm" class="info-group">  
+                        <div class="form-grid">
+                            <div class="form-column">
+                                <div class="input-box">
+                                    <label>الاسم الكامل:</label>
+                                    <input type="text" value="" readonly class="table-input" id="doc_name_display">
+                                </div>
+                                <div class="input-box">
+                                    <label>الرقم الوظيفي:</label>
+                                    <input type="text" value="" readonly class="table-input" id="doc_id_display">
+                                </div>
+                            </div>
+                            <div class="form-column">
+                                <div class="input-box">
+                                    <label>رقم التواصل:</label>
+                                    <input type="text" placeholder="+962 7XXXXXXXX" class="table-input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="divider">
+
+                        <div class="form-grid selection-grid">
+                            <div class="input-box">
+                                <label>الموقع:</label>
+                                <select class="table-input" required>
+                                    <option value="">-- اختر القاعة --</option>
+                                    <option value="302">قاعة 302</option>
+                                    <option value="201">مدرج الكلية</option>
+                                    <option value="Lab 1">مختبر 1</option>
+                                    <option value="Lab 2">مختبر 2</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <label>نوع العطل:</label>
+                                <select class="table-input" required>
+                                    <option value="">-- اختر النوع --</option>
+                                    <option value="PC">أجهزة حاسوب</option>
+                                    <option value="Projector">بروجكتر</option>
+                                    <option value="Network">شبكة إنترنت</option>
+                                    <option value="Other">أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-box full-width">
+                            <label>وصف المشكلة:</label>
+                            <textarea class="table-input" rows="4" placeholder="اكتب التفاصيل هنا..." required></textarea>
+                        </div>
+                        
+                        <div class="form-alert">
+                            <strong>تنبيه:</strong> سيقوم النظام بفحص قاعدة البيانات لمنع تكرار الطلب لنفس القاعة والخلل إذا كان قيد المعالجة.
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">إرسال البلاغ</button>
+                            <button type="reset" class="reset-btn">إعادة تعيين</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="white-card history-card">
+                    <h3>طلباتي السابقة</h3>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>الموقع</th>
+                                    <th>الحالة</th>
+                                    <th>نوع العطل</th>
+                                </tr>
+                            </thead>
+                            <tbody id="maintenanceHistoryBody">
+                                <tr>
+                                    <td colspan="3" style="text-align:center;">جاري تحميل البيانات...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="/maintenance/maint.js"></script>
+</body>
+</html>

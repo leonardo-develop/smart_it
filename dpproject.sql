@@ -1,0 +1,1 @@
+SELECT * FROM smart_it_hub.honor_board;

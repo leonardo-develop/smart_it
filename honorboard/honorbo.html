@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الشرف - كلية IT</title>
+    <link rel="stylesheet" href="board.css">
+    <script defer src="scrh.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Smart IT <span class="highlight">Faculty</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/studentinfo/studentprof.html">الملف الشخصي</a></li>
+                <li><a href="/labs/labsavailbale.html">حجز المختبرات</a></li>
+                <li><a href="/honorboard/honorbo.html" class="active">لوحة الشرف</a></li>
+                <li><a href="/instructor_members/iinstruct.html">مدرسي الكلية</a></li>
+                <li><a href="/loginform/login2.html">تسجيل الخروج</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <h1 class="page-title">لوحة شرف كلية تكنولوجيا المعلومات</h1>
+        <p class="page-subtitle">نخبة المتميزين في تخصصات الكلية للعام الأكاديمي الحالي</p>
+    </header>
+
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="ابحث عن اسم الطالب...">
+    </div>
+
+    <main id="main">
+        
+        <!-- 1. تخصص هندسة البرمجيات -->
+        <div class="specialization-block" data-specialization="Software Engineering">
+            <h2 class="spec-title">تخصص هندسة البرمجيات</h2>
+            <div class="table-wrapper">
+                <table class="honor-table">
+                    <thead>
+                        <tr>
+                            <th>الترتيب</th>
+                            <th>اسم الطالب</th>
+                            <th>الساعات</th>
+                            <th>المعدل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="se-students">
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+   
+        <div class="specialization-block" data-specialization="Computer Science">
+            <h2 class="spec-title">تخصص علم الحاسوب</h2>
+            <div class="table-wrapper">
+                <table class="honor-table">
+                    <thead>
+                        <tr>
+                            <th>الترتيب</th>
+                            <th>اسم الطالب</th>
+                            <th>الساعات</th>
+                            <th>المعدل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cs-students">
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+       
+        <div class="specialization-block" data-specialization="Data Science">
+            <h2 class="spec-title">تخصص الذكاء الاصطناعي</h2>
+            <div class="table-wrapper">
+                <table class="honor-table">
+                    <thead>
+                        <tr>
+                            <th>الترتيب</th>
+                            <th>اسم الطالب</th>
+                            <th>الساعات</th>
+                            <th>المعدل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ai-students">
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    
+        <div class="specialization-block" data-specialization="Information Systems">
+            <h2 class="spec-title">تخصص نظم المعلومات الحاسوبية</h2>
+            <div class="table-wrapper">
+                <table class="honor-table">
+                    <thead>
+                        <tr>
+                            <th>الترتيب</th>
+                            <th>اسم الطالب</th>
+                            <th>الساعات</th>
+                            <th>المعدل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cis-students">
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="specialization-block" data-specialization="Information Security">
+            <h2 class="spec-title">تخصص أمن المعلومات والأدلة الرقمية</h2>
+            <div class="table-wrapper">
+                <table class="honor-table">
+                    <thead>
+                        <tr>
+                            <th>الترتيب</th>
+                            <th>اسم الطالب</th>
+                            <th>الساعات</th>
+                            <th>المعدل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cyber-students">
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        © 2026 جامعة مؤتة - كلية تكنولوجيا المعلومات
+    </footer>
+</body>
+</html>

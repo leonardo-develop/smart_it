@@ -1,0 +1,164 @@
+:root {
+    --primary-color: #8b3d30;    /* العنابي الداكن */
+    --accent-gold: #c5a059;      /* الذهبي */
+    --text-main: #44413e;        /* لون النص الأساسي */
+    --bg-page: #f1e6e0;          /* لون الخلفية الكريمي */
+    --row-hover-bg: #f8f4f2;     /* خلفية السطر عند التمرير */
+    --border-soft: #ebdcd5;      /* لون الحدود */
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    padding-top: 100px;
+    line-height: 1.6;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--primary-color);
+    height: 80px;
+    width: 100%;
+    position: fixed; 
+    top: 0; left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo-text { color: #f1e6e0; font-size: 22px; font-weight: 800; }
+.highlight { color: var(--accent-gold); }
+.nav-links { list-style: none; display: flex; gap: 25px; }
+.nav-links a { text-decoration: none; color: #f1e6e0; font-weight: 600; font-size: 14px; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+
+/* --- Header Section --- */
+.main-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title { color: var(--primary-color); font-size: 30px; font-weight: 800; }
+.page-subtitle { color: #8e8379; font-size: 17px; margin-top: 5px; }
+
+/* --- Search Box --- */
+.search-section {
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+
+#searchInput {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 2px solid var(--border-soft);
+    outline: none;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus { 
+    border-color: var(--primary-color); 
+    box-shadow: 0 5px 15px rgba(139, 61, 48, 0.1); 
+}
+
+/* --- Specialization Blocks --- */
+.specialization-block {
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+.spec-title {
+    color: var(--primary-color);
+    font-size: 22px;
+    border-right: 4px solid var(--accent-gold);
+    padding-right: 15px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+/* --- Table Design --- */
+.table-wrapper {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-soft);
+}
+
+.honor-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.honor-table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 18px;
+    font-weight: 700;
+}
+
+.honor-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f2f2f2;
+    text-align: center;
+    transition: 0.2s;
+}
+
+/* --- Hover Effects --- */
+.honor-table tbody tr {
+    transition: 0.3s ease;
+}
+
+.honor-table tbody tr:hover {
+    background-color: var(--row-hover-bg);
+    transform: scale(1.002);
+    box-shadow: inset 5px 0 0 var(--accent-gold); /* شريط ذهبي جانبي عند التمرير */
+    cursor: pointer;
+}
+
+.honor-table tbody tr:hover td {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.grade {
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.honor-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 14px;
+    border-top: 4px solid var(--accent-gold);
+    margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container { padding: 0 20px; }
+    .table-wrapper { overflow-x: auto; }
+    .page-title { font-size: 24px; }
+}

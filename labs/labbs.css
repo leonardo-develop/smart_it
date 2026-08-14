@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: #f1e6e0;
+     /*لتكون خلفية الصفحه عباره عن شبكه من المربعات*/
+    background-image: 
+        linear-gradient(rgba(139, 61, 48, 0.05) 1px, transparent 1px),/*رسم حطوط افقيه*/
+        linear-gradient(90deg, rgba(139, 61, 48, 0.05) 1px, transparent 1px);/*رسم خطوط عموديه
+        "90deg" هي الي بتخلي الخطوط تنرسم بشكل عمودي*/
+    background-size: 40px 40px; /* حجم المربعات : بنقدر نكبره أو نصغره */
+    color: #44413e;
+}
+/* تنسيق شريط التنقل*/
+.navbar {
+    background-color: #8b3d30 !important;
+    height: 80px;
+    width: 100%;
+    position: fixed; /* تثبيت الشريط في الأعلى */
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ebdcd5;
+    overflow: hidden; /* بنتمنع خروج النقشات عن حدود الشريط */
+}
+
+/* الحاوية الداخلية لتوزيع العناصر */
+.nav-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* يكون التوزيع أفقي*/
+    justify-content: space-between; /* اللوجو في طرف والروابط في طرف */
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    box-sizing: border-box; /*عشان ال padding ما يعجق الدنيا*/
+}
+
+/* روابط التنقل */
+.nav-links {
+    list-style: none; /*نشيل النقاط السودا الي بتجي جنب العناصر*/
+    display: flex;
+    gap: 30px; 
+    margin: 0;
+    padding: 0;
+    flex-direction: row ; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f1e6e0 !important;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    opacity: 0.8; /*بخلي لونهم شفاف بشكل بسيط بس نمرر الماوس عليهم*/
+    transition: 0.3s;
+}
+
+/* اللوجو */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    color: #f1e6e0 !important;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: default;
+    text-transform: capitalize;
+}
+
+.navbar::before, .navbar::after { /*بنجهز طبقه اضافيه*/
+    content: ''; /*خلي الطبقه الاضافيه فاضيه*/
+    position: absolute; /*عشان تطفو فوق الشريط*/
+    /*العناصلا الاربعه هدول عشان تمتد الطبقه ع كامل الشريط*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.navbar::before {
+    background-image: url('/uploads/images/nav.jpeg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* تقليل الشفافيه */
+    z-index: 1; /*ترتيب الصوره حيكون في الطبقه الاولى*/
+}
+
+.navbar::after {
+    /*طيب  هون عشان نخلي اللون يمشي بشكل قطري من الغامق للشفاف بحيث الصوره تكون ماشيه مع اتدرج من انها تكون شوي مبينه لمبينه تماما بس مع اللون لسا مغطي عليها*/
+    background: linear-gradient(135deg, rgba(139, 61, 48, 0.95), rgba(139, 61, 48, 0.8));
+    z-index: 2; /*هاي عشان اللون يكون في الطبقه الثانيه و يغطي ع الصوره*/
+}
+.content-area {
+    flex: 1; 
+    padding: 100px 5px 40px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-header {
+    /* 1. توحيد العرض مع الكارد (1250px كما فعلنا سابقاً) */
+    width: 100%;
+    max-width: 1250px; 
+    margin: 0 auto 20px auto !important; 
+    text-align: right; 
+    padding: 0 10px; 
+    box-sizing: border-box;
+}
+.page-title {
+    color: #8b3d30;
+    font-size: 30px;
+    margin: 0;
+}
+.page-subtitle {
+    color: #8e8379;
+    font-size: 15px;
+    margin-top: 2px; 
+}
+.top-row-container {
+    display: flex;
+    gap: 20px;
+    align-items: stretch; 
+    margin-bottom: 25px;
+    width: 100%;
+}
+.lab-status-section {
+    flex: 1;
+}
+.lab-schedule-section {
+    flex: 2; 
+}
+.white-card {
+    background-color: rgba(253, 248, 245, 0.75);
+    width: 98%; 
+    max-width: 1250px; 
+    margin: 0 auto 25px auto; 
+    border-radius: 12px; 
+    border: 1px solid rgba(212, 165, 162, 0.4);
+    box-shadow: 0 2px 10px rgba(139, 61, 48, 0.05);
+    padding: 30px; 
+    backdrop-filter: blur(8px);
+    box-sizing: border-box;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+.white-card h3 {
+    color: #8b3d30;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ebdcd5;
+    padding-bottom: 10px;
+}
+
+.card-subtitle {
+    color: #8e8379;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 15px;
+    border: 1px solid #ebdcd5;
+}
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+.schedule-table th {
+    background-color: #f3ece7;
+    color: #8b3d30;
+    padding: 18px;
+    font-weight: 800;
+    border-bottom: 2px solid #ebdcd5;
+}
+.schedule-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #f1e6e0;
+}
+.day-cell {
+    background-color: #fdf8f6;
+    color: #8b3d30;
+    font-weight: 800;
+    width: 150px;
+}
+.occupied-cell {
+    background-color: #f8e9e0;
+    color: #8e8379;
+    font-size: 13px;
+}
+.available-cell {
+    background-color: #fff;
+    color: #2e7d32;
+    font-weight: 700;
+}
+.lab-schedule-section {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+}
+.lab-booking-form-section {
+    width: 100%;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+}
+
+.form-group label {
+    color: #5e4b3e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ebdcd5;
+    background-color: white;
+    font-family: inherit;
+    font-size: 13px;
+    color: #44413e;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit-btn {
+    background-color: #8b3d30;
+    color: white;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(139, 61, 48, 0.2);
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #91403D;
+    transform: translateY(-2px);
+}
+.table-wrapper, .schedule-table {
+    width: 100%;
+}
+@media (max-width: 992px) {
+    .top-row-container {
+        flex-direction: column;
+    }
+    
+    .lab-status-section, .lab-schedule-section {
+        width: 100%;
+    }
+}

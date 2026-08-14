@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="team 12">
+    <meta name="description" content="student personal profile">
+    <title>ملف الطالب الشخصي</title>
+    <link rel="stylesheet" href="/studentinfo/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="notification-wrapper">
+            <div class="notification-bell" id="bellBtn">
+              
+            </div>
+    
+            <div class="notification-dropdown" id="notifDropdown">
+                <div class="notif-header">الإشعارات</div>
+                <div class="notif-content">
+                    <div class="notif-item">تم حجز جهازك في مختبر 101 بنجاح.</div>
+                    <div class="notif-item">تذكير: موعد تسليم مشروع مادة الشبكات بعد 3 ساعات.</div>
+                    <div class="notif-item">تم تحديث جدول تفرغ مختبر 105.</div>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Smart IT <span class="highlight">Faculty</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/studentinfo/studentprof.html" class="active">الملف الشخصي</a></li>
+                <li><a href="/labs/labsavailbale.html">حجز المختبرات</a></li>
+                <li><a href="/honorboard/honorbo.html">لوحة الشرف</a></li>
+                <li><a href="/instructor_members/iinstruct.html">مدرسي الكلية</a></li>
+                <li><a href="/loginform/login2.html">تسجيل الخروج</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <h1 class="page-title">الملف الشخصي للطالب</h1>
+        <p class="page-subtitle">عرض معلومات الطالب الأكاديمية</p>
+    </header>
+
+    <section class="student-info-card">
+        <div class="card-top-row">
+            <div class="profile-image-container">
+                <div class="avatar-circle">
+                    <img src="/uploads/images/stpi.jpeg" alt="صورة الطالب" class="student-photo" id="studentImg">
+                </div>
+            </div>
+
+            <div class="student-details">
+                <h2 class="student-name" id="studentName">جاري التحميل...</h2>
+                <div class="info-row">
+                    <span class="info-label">الرقم الجامعي:</span>
+                    <span class="info-value" id="studentIdDisplay">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">التخصص:</span>
+                    <span class="info-value" id="studentMajor">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">الكلية:</span>
+                    <span class="info-value">كلية تكنولوجيا المعلومات</span>
+                </div>
+                <div class="status-container"> 
+                    <span class="student-status" id="studentStatus">نشط</span>
+                </div>
+            </div>
+
+            <div class="gpa-box">
+                <span class="gpa-label">المعدل التراكمي</span>
+                <h2 class="gpa-value" id="gpaValue">0%</h2>
+                <p><span id="completedHoursText">0</span> من <span id="totalHoursText">0</span> ساعة</p>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <progress id="studentProgressBar" value="0" max="100"></progress>
+            <p id="progressPercentage">0% مكتمل</p>
+        </div>
+
+        <div class="cards-row">
+            <div class="stat-card">
+                <div class="card-header">
+                    <h3>الإحصائيات الأكاديمية</h3>
+                </div>
+                <div class="stats-grid">
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <span class="stat-label">إجمالي الساعات</span>
+                            <span class="stat-number" id="statTotalHours">132</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">الساعات المكتملة</span>
+                            <span class="stat-number" id="statCompletedHours">0</span>
+                        </div>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <span class="stat-label">الفصل الحالي</span>
+                            <span class="stat-number" id="currentSemesterHours">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">الساعات المتبقية</span>
+                            <span class="stat-number" id="remainingHours">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-header">
+                    <h3>مواد الفصل الحالي</h3>
+                    <p class="card-subtitle">اضغط على المادة لعرض التفاصيل</p>
+                </div>
+                <div class="courses-list" id="coursesContainer">
+                    <p style="padding: 10px; text-align: center; color: #888;">جاري تحميل المواد...</p>
+                </div>
+                <div class="courses-footer">
+                    <span>المجموع</span>
+                    <span class="total-hours" id="currentTotalHours">0 ساعة</span>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <footer>
+        © 2026 كلية تكنولوجيا المعلومات - فريق البرمجة
+    </footer>
+
+    <script src="/studentinfo/a2.js"></script>
+</body>
+</html>

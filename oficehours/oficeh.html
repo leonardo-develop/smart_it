@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الساعات المكتبية | Smart IT Faculty Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/oficehours/office.css">
+    
+    <style>
+        /* تنسيق إضافي لضمان بقاء الألوان متناسقة مع مشروعك */
+        .smart-suggestion-card {
+            background: #f0f7ff;
+            border-right: 4px solid #3498db;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(52, 152, 219, 0.1);
+        }
+        .suggestion-title {
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .suggestions-list {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .sugg-btn {
+            background: #ffffff;
+            border: 1.5px solid #3498db;
+            color: #3498db;
+            padding: 8px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Noto Kufi Arabic', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .sugg-btn:hover {
+            background: #3498db;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+        }
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Smart IT Faculty</span>
+            </div>
+            <div class="nav-user">
+                <span id="navDrName">جاري التحميل...</span>
+                <div class="nav-avatar">
+                    <img id="navDrImg" src="/uploads/images/doctorprofileim.jpg" alt="Dr">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="side-header"><p>قائمة التحكم</p></div>
+            <nav class="side-links">
+                <a href="/docprofile/doctor.html" class="side-item ">الملف الشخصي</a>
+                      <a href="/syllabus/syll.html" class="side-item">المساقات</a>
+                      <a href="/teaminstructor/team.html" class="side-item">زملاء الكلية </a>
+                      <a href="/oficehours/oficeh.html" class="side-item active">الساعات المكتبية</a>
+                      <a href="/maintenance/maint.html" class="side-item">طلبات الصيانة</a>
+                      <a href="/loginform/login2.html" class="side-item">تسجيل الخروج </a>
+            </nav>
+            <footer class="side-footer">© 2026 كلية تكنولوجيا المعلومات</footer>
+        </aside>
+
+        <main class="content-area">
+            <header class="content-header">
+                <h1>إدارة الساعات المكتبية</h1>
+                <p>تحديد المواعيد المتاحة لمقابلة الطلاب وتقديم الإرشاد الأكاديمي.</p>
+            </header>
+
+            <section class="white-card">
+                <h2>إضافة موعد جديد</h2>
+                
+                <div id="smartSuggestions" class="smart-suggestion-card" style="display: none;">
+                    <div class="suggestion-title">
+                        <span>💡</span> مقترحات ذكية بناءً على الفجوات في جدولك الدراسي:
+                    </div>
+                    <div id="suggestionsList" class="suggestions-list">
+                        </div>
+                </div>
+
+                <form id="officeHoursForm">
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="day_select">اختر اليوم:</label>
+                            <select id="day_select" class="table-input" required>
+                                <option value="">-- اختر اليوم --</option>
+                                <option value="Sunday">الأحد</option>
+                                <option value="Monday">الاثنين</option>
+                                <option value="Tuesday">الثلاثاء</option>
+                                <option value="Wednesday">الأربعاء</option>
+                                <option value="Thursday">الخميس</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="time_from">من الساعة:</label>
+                            <input type="time" id="time_from" class="table-input" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="time_to">إلى الساعة:</label>
+                            <input type="time" id="time_to" class="table-input" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="office_loc">المكان / رقم المكتب:</label>
+                        <input type="text" id="office_loc" class="table-input" placeholder="مثال: مكتب 310 - الطابق الثالث" required>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: left;">
+                        <button type="submit" class="submit-btn">حفظ وتثبيت الموعد</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="white-card">
+                <h2>مواعيدي الحالية المسجلة</h2>
+                <div class="table-container" style="overflow-x: auto;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>اليوم</th>
+                                <th>الوقت</th>
+                                <th>المكان</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="officeHoursTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/oficehours/ofic.js"></script>
+</body>
+</html>

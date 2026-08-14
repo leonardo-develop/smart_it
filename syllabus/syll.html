@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المواد | Smart IT Faculty Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/syllabus/sylc.css"> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Smart IT Faculty</span>
+            </div>
+            <div class="nav-user">
+                <span id="dr_name_display">جاري التحميل</span>
+                <div class="nav-avatar">
+                    <img id="dr_photo_display" src="/uploads/images/doctorprofileim.jpg" alt="Dr">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="side-header"><p>قائمة التحكم</p></div>
+            <div class="side-links">
+                <a href="/docprofile/doctor.html" class="side-item ">الملف الشخصي</a>
+                <a href="/syllabus/syll.html" class="side-item active">المساقات</a>
+                <a href="/teaminstructor/team.html" class="side-item">زملاء الكلية </a>
+                <a href="/oficehours/oficeh.html" class="side-item">الساعات المكتبية</a>
+                <a href="/maintenance/maint.html" class="side-item">طلبات الصيانة</a>
+                <a href="/loginform/login2.html" class="side-item">تسجيل الخروج </a>
+            </div>
+            <footer class="side-footer">© 2026 كلية تكنولوجيا المعلومات</footer>
+        </aside>
+
+        <main class="content-area">
+            <div id="courses_container">
+                <p style="text-align: center; padding: 20px;">جاري تحميل المساقات من قاعدة البيانات...</p>
+            </div>
+        </main>
+    </div>
+
+    <template id="course_template">
+        <div class="master-hub-console" style="margin-bottom: 40px;">
+            <header class="main-header">
+                <h1 class="page-title course_title_ui">اسم المادة</h1>
+                <p class="page-subtitle">رمز المادة: <span class="course_code_ui"></span></p>
+            </header>
+
+            <div class="console-header">
+                <div class="course-main-info">
+                    <h2 class="course_title_ui_sub">اسم المادة</h2>
+                    <span>عدد الطلاب: <span class="student_count_ui">0</span> | الشعبة: <span class="section_num_ui">--</span></span>
+                </div>
+                <button class="attendance-btn">📊 إدارة الحضور والدرجات</button>
+            </div>
+
+            <form class="upload-form" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="course_id" class="course_id_hidden">
+                
+                <div class="console-body">
+                    <div class="console-row">
+                        <div class="console-panel">
+                            <label>خطة المادة المعيارية (Syllabus)</label>
+                            <div class="file-box">
+                                <div class="syllabus-container">
+                                    </div>
+                                <div class="upload-label-text">تحديث الملف:</div>
+                                <input type="file" name="syllabus_file" class="custom-file-input" accept=".pdf">
+                            </div>
+                        </div>
+                        <div class="console-panel">
+                            <label>المحاضرات والشروحات (Slides)</label>
+                            <div class="file-box">
+                                <div class="slides-container">
+                                    </div>
+                                <div class="upload-label-text">إضافة ملفات:</div>
+                                <input type="file" name="slides_files" class="custom-file-input" multiple>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="console-panel full-width">
+                        <label>المراجع والكتب الدراسية (Library & References)</label>
+                        <div class="file-box">
+                             <div class="books-container">
+                                </div>
+                             <div class="upload-label-text">إضافة مراجع جديدة:</div>
+                             <input type="file" name="books_files" class="custom-file-input" multiple>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="console-footer">
+                    <button type="submit" class="update-btn">حفظ جميع التعديلات النهائية للمادة</button>
+                </div>
+            </form>
+        </div>
+    </template>
+
+    <script src="/syllabus/sylb.js"></script>
+</body>
+</html>

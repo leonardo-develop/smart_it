@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: #f1e6e0;
+    background-image: 
+        linear-gradient(rgba(139, 61, 48, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 61, 48, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #44413e;
+    padding-top: 80px; 
+}
+.navbar {
+    background-color: #8b3d30 !important;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ebdcd5;
+    overflow: hidden;
+}
+.navbar::before, .navbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.navbar::before {
+    background-image: url('/uploads/images/techPattren.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 1; 
+}
+
+.navbar::after {
+   background: linear-gradient(135deg, rgba(139, 61, 48, 0.95), rgba(139, 61, 48, 0.8));
+    z-index: 2;
+}
+.nav-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+/*#uniLogo {
+    height: 50px;
+    width: auto; 
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); 
+    transition: 0.3s;
+} */
+
+.logo-text {
+    color: #f1e6e0 !important;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: capitalize;
+    cursor: default;
+}
+
+.highlight {
+    color: #d4a5a2;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#navDrName {
+    color: #f1e6e0;
+    font-weight: 600;
+    font-size: 16px;
+}
+.nav-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ebdcd5;
+    overflow: hidden;
+    background-color: #fdf8f5;
+}
+
+.nav-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-user:hover {
+    opacity: 0.8;
+}
+
+.page-layout {
+    display: flex;
+    margin-top: 0;
+    gap: 25px;
+    padding: 0 ;
+    align-items: stretch;
+}
+
+.sidebar {
+    width: 280px;
+    border-radius: 0;
+    padding: 30px 15px;
+    box-shadow: 0 4px 20px rgba(179, 109, 106, 0.2); 
+    border: 1px solid #F2E6E1;
+    position: sticky;
+    top: 100px; 
+}
+
+.side-header {
+    margin-bottom: 25px;
+    padding-right: 15px;
+}
+.content-area {
+    flex: 1;
+    padding: 30px; 
+    background-color: transparent; /* عشان يضل نقش المربعات مبين */
+}
+.side-header p {
+    color: #91403D;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin: 0;
+    border-right: 4px solid #D4A5A2; 
+    padding-right: 10px;
+}
+.side-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-item {
+    text-decoration: none;
+    color: #B36D6A; 
+    padding: 14px 20px; 
+    border-radius: 15px;
+    font-size: 15px; 
+    font-weight: 600;
+    display: block; 
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+.side-item.active {
+    background-color:#8b3d30; 
+    opacity: 0.8;
+    color: #FDF8F5; 
+    box-shadow: 0 4px 12px rgba(212, 165, 162, 0.4);
+}
+.side-item:hover:not(.active) {
+    background-color: #F2E6E1;
+    color: #91403D;
+    transform: translateX(-5px); 
+}
+.side-item i {
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+    color: inherit; 
+}
+.main-card {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.dr-header-box {
+    background-color: rgba(253, 248, 245, 0.7); 
+    border-radius: 25px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid #F2E6E1;
+    box-shadow: 0 8px 25px rgba(139, 61, 48, 0.05);
+    backdrop-filter: blur(5px); /*تغبيش*/
+    animation: slideDown 0.8s ease-out;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.big-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #8b3d30;
+    box-shadow: 0 4px 15px rgba(139, 61, 48, 0.2);
+}
+.dr-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#drName {
+    color: #91403D;
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0;
+}
+#drTitle {
+    color: #8e8379;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.grid-layout {
+    display: block; 
+    margin-top: 30px;
+}
+
+.col-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;
+}
+ /* في الشاشات الصغيرة بصيروا تحت بعض-اختياريه */
+@media (max-width: 900px) {
+    .col-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+.white-card {
+    background-color: rgba(253, 248, 245, 0.45);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(212, 165, 162, 0.3);
+    box-shadow: 0 10px 30px rgba(139, 61, 48, 0.05);
+    backdrop-filter: blur(15px);
+    animation: slideDown 0.8s ease-out;
+}
+.res-list {
+    list-style: none;
+    padding: 0;
+}
+
+.res-list li {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.res-list li:hover {
+    background: rgba(139, 61, 48, 0.05);
+    transform: scale(1.02);
+}
+.white-card h3 {
+    width: 100%; 
+    border-bottom: 2px solid rgba(212, 165, 162, 0.4);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}

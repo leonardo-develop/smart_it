@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #8b3d30;    /* العنابي الداكن */
+    --accent-gold: #c5a059;      /* الذهبي */
+    --text-main: #44413e;        /* لون النص الأساسي */
+    --bg-page: #f1e6e0;          /* لون الخلفية الكريمي */
+    --row-hover-bg: #f8f4f2;     /* خلفية السطر عند التمرير */
+    --border-soft: #ebdcd5;      /* لون الحدود */
+}
+body {
+    margin: 0;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: #f1e6e0;
+    background-image: 
+        linear-gradient(rgba(139, 61, 48, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 61, 48, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #44413e;
+    padding-top: 80px; 
+} 
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--primary-color);
+    height: 80px;
+    width: 100%;
+    position: fixed; 
+    top: 0; left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo-text { color: #f1e6e0; font-size: 22px; font-weight: 800; }
+.highlight { color: var(--accent-gold); }
+.nav-links { list-style: none; display: flex; gap: 25px; }
+.nav-links a { text-decoration: none; color: #f1e6e0; font-weight: 600; font-size: 14px; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+
+
+.main-header {
+    max-width: 900px;
+    margin: 0 20px 20px auto !important;
+    text-align: right;
+    padding: 10px 15px;
+}
+.page-title {
+    color: #8b3d30;
+    font-size: 30px;
+    margin: 0;
+}
+.page-subtitle {
+    color: #8e8379;
+    font-size: 15px;
+    margin-top: 5px;
+}
+.dept-section {
+    margin-bottom: 40px;
+    animation: slideDown 0.8s ease-out;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.dept-title {
+    color: #8b3d30;
+    border-right: 5px solid #8b3d30;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+.st-dr-card {
+    background: rgba(253, 248, 245, 0.7);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(212, 165, 162, 0.3);
+    text-align: center;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.st-dr-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(139, 61, 48, 0.1);
+}
+.dr-img {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    border: 3px solid #8b3d30;
+    margin-bottom: 15px;
+    object-fit: cover;
+    background-color: white;
+}
+.dr-name-text {
+    color: #8b3d30;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.academic-info-box {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin: 15px 0;
+    text-align: right;
+    border: 1px solid #f1e6e0;
+}
+
+.academic-info-box p {
+    margin: 5px 0;
+    color: #5e4b3e;
+}
+
+.academic-info-box b {
+    color: #8b3d30;
+}
+
+
+.office-hours-box {
+    margin-top: 15px;
+    background: #fff;
+    border: 1px dashed #d4a5a2;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.office-hours-box h5 {
+    margin: 0 0 10px 0;
+    color: #8b3d30;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hour-item {
+    display: flex;
+    justify-content: space-between;
+    background: #fdf8f6;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.day {
+    font-weight: bold;
+    color: #91403D;
+}
+
+.time {
+    color: #5e4b3e;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 14px;
+    border-top: 4px solid var(--accent-gold);
+    margin-top: 50px;
+}

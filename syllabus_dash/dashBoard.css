@@ -1,0 +1,309 @@
+body {
+    margin: 0;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: #f1e6e0;
+    background-image: 
+        linear-gradient(rgba(139, 61, 48, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 61, 48, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #44413e;
+    padding-top: 80px; 
+}
+.navbar {
+    background-color: #8b3d30 !important;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ebdcd5;
+    overflow: hidden;
+}
+.navbar::before, .navbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.navbar::before {
+    background-image: url('/uploads/images/techPattren.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 1; 
+}
+
+.navbar::after {
+   background: linear-gradient(135deg, rgba(139, 61, 48, 0.95), rgba(139, 61, 48, 0.8));
+    z-index: 2;
+}
+.nav-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-text {
+    color: #f1e6e0 !important;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: capitalize;
+    cursor: default;
+}
+
+.highlight {
+    color: #d4a5a2;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#navSTname {
+    color: #f1e6e0;
+    font-weight: 600;
+    font-size: 16px;
+}
+.nav-profile-link {
+    text-decoration: none !important;
+    color: #f1e6e0 !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px; 
+}
+.nav-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ebdcd5;
+    overflow: hidden;
+    background-color: #fdf8f5;
+}
+
+.nav-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-user:hover {
+    opacity: 0.8;
+}
+.page-layout {
+    display: flex;
+    align-items: flex-start; 
+    gap: 0;
+    padding: 0; 
+}
+.sidebar {
+    width: 280px;
+    background-color: rgba(253, 248, 245, 0.35); 
+    border-radius: 0 0 20px 0; 
+    padding: 30px 15px;
+    border-left: 1px solid #F2E6E1; 
+    border-bottom: 1px solid #F2E6E1;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    z-index: 999;
+    box-sizing: border-box;
+}
+
+
+.side-header {
+    margin-bottom: 25px;
+    padding-right: 15px;
+}
+.content-area {
+    flex: 1;
+    padding: 30px; 
+    background-color: transparent; /* عشان يضل نقش المربعات مبين */
+}
+.side-header p {
+    color: #91403D;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin: 0;
+    border-right: 4px solid #D4A5A2; 
+    padding-right: 10px;
+}
+.side-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.side-item {
+    text-decoration: none;
+    color: #B36D6A; 
+    padding: 14px 20px; 
+    border-radius: 15px;
+    font-size: 15px; 
+    font-weight: 600;
+    display: block; 
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+.side-item.active {
+    background-color:#8b3d30; 
+    opacity: 0.8;
+    color: #FDF8F5; 
+    box-shadow: 0 4px 12px rgba(212, 165, 162, 0.4);
+}
+.side-item:hover:not(.active) {
+    background-color: #F2E6E1;
+    color: #91403D;
+    transform: translateX(-5px); 
+}
+.side-item i {
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+    color: inherit; 
+}
+.side-footer {
+    margin-top: auto;
+    padding: 20px 15px;
+    font-size: 11px;
+    color: #B36D6A;
+    text-align: center;
+    border-top: 1px solid rgba(212, 165, 162, 0.2);
+    opacity: 0.8;
+    font-weight: 600;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important; 
+}
+
+.main-header {
+    max-width: 900px;
+    margin: 0 20px 20px auto !important;
+    text-align: right;
+    padding: 10px 15px;
+}
+.page-title {
+    color: #8b3d30;
+    font-size: 30px;
+    margin: 0;
+}
+.page-subtitle {
+    color: #8e8379;
+    font-size: 15px;
+    margin-top: 5px;
+}
+.tabs-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-right: 15px;
+    overflow-x: auto;
+}
+.tab-btn {
+    padding: 12px 20px;
+    border: none;
+    background: #ebdcd5;
+    color: #8b3d30;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+.tab-btn.active {
+    background: #8b3d30;
+    color: white;
+    box-shadow: 0 4px 12px rgba(139, 61, 48, 0.2);
+}
+/* عشان يختفي المحتى الي مش شغالين عليه*/
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.white-card {
+    background: rgba(253, 248, 245, 0.7);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(212, 165, 162, 0.3);
+    backdrop-filter: blur(10px);
+}
+.info-card-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    gap: 15px;
+    border: 1px solid #f1e6e0;
+}
+.file-icon {
+    width: 50px;
+    height: 50px;
+    background: #8b3d30;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 12px;
+}
+.file-icon.ppt { background: #d35400; }
+.download-link-btn {
+    margin-right: auto; 
+    background: #8b3d30;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.simple-table th, .simple-table td {
+    padding: 12px;
+    text-align: right;
+    border-bottom: 1px solid #ebdcd5;
+}
+
+.simple-table th { color: #8b3d30; }
+.alert-box.warning {
+    background: #fff3e0;
+    color: #e65100;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-right: 5px solid #ff9800;
+    font-weight: 600;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الحضور والعلامات | Smart IT Faculty</title>
+    <link rel="stylesheet" href="/abspresent/absent.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar"> 
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Smart IT Faculty</span>
+            </div>
+            <div class="nav-user">
+                <span id="navDrName">د. نجود المعايطة</span>
+                <div class="nav-avatar">
+                    <img src="/uploads/images/doctorprofileim.jpg" alt="Dr">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <aside class="sidebar">
+        <div class="side-header">
+            <p>قائمة التحكم</p>
+        </div>
+         <nav class="side-links">
+            <nav class="side-links">
+                <a href="/docprofile/doctor.html" class="side-item ">الملف الشخصي</a>
+                <a href="/syllabus/syll.html" class="side-item">ادراة المواد </a>
+                <a href="/teaminstructor/team.html" class="side-item">زملاء الكلية </a>
+                <a href="/oficehours/oficeh.html" class="side-item">الساعات المكتبية</a>
+                <a href="/maintenance/maint.html" class="side-item">طلبات الصيانة</a>
+                <a href="/loginform/login2.html" class="side-item">تسجيل الخروج </a>
+               
+                  <footer class="side-footer">
+                    © 2026 كلية تكنولوجيا المعلومات
+                  </footer>
+
+             </nav>
+         </nav>
+    </aside>
+        <main class="content-area"> 
+            <h1>إدارة الحضور والغياب ورصد العلامات</h1>
+
+            <section class="white-card"> 
+                <label>المساق:</label>
+                <select id="courseSelect" class="table-input">
+                    <option value="">-- اختر المساق --</option>
+                </select>
+
+                <label>الشعبة:</label>
+                <select id="sectionSelect" class="table-input"> 
+                    <option value="">-- اختر الشعبة --</option>
+                </select>
+            </section>
+
+            <hr>
+
+            <section class="white-card"> 
+                <h2 id="tableTitle">قائمة الطلاب</h2>
+                <div style="overflow-x: auto;"> 
+                    <table class="data-table" id="studentsTable" border="1"> 
+                        <thead>
+                            <tr>
+                                <th>الرقم الجامعي</th>
+                                <th>اسم الطالب</th>
+                                <th>حالة الحضور</th>
+                                <th>عدد الغيابات</th>
+                                <th>المشاركة (20)</th>
+                                <th>المنتصف (30)</th>
+                                <th>النهائي (50)</th>
+                                <th>المجموع (100)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            </tbody>
+                    </table>
+                </div>
+                <br>
+                <button type="button" id="saveAllBtn" class="submit-btn">حفظ وتحديث قاعدة البيانات</button>
+            </section>
+        </main>
+    </div>
+    
+    <script src="/abspresent/absmark.js"></script>
+</body>
+</html>

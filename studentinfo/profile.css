@@ -1,0 +1,570 @@
+body {
+    margin: 0;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: #f1e6e0;
+     /*لتكون خلفية الصفحه عباره عن شبكه من المربعات*/
+    background-image: 
+        linear-gradient(rgba(139, 61, 48, 0.05) 1px, transparent 1px),/*رسم حطوط افقيه*/
+        linear-gradient(90deg, rgba(139, 61, 48, 0.05) 1px, transparent 1px);/*رسم خطوط عموديه
+        "90deg" هي الي بتخلي الخطوط تنرسم بشكل عمودي*/
+    background-size: 40px 40px; /* حجم المربعات : بنقدر نكبره أو نصغره */
+    color: #44413e;
+}
+/* تنسيق شريط التنقل*/
+.navbar {
+    background-color: #8b3d30 !important;
+    height: 80px;
+    width: 100%;
+    position: fixed; /* تثبيت الشريط في الأعلى */
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ebdcd5;
+    overflow: hidden; /* بنتمنع خروج النقشات عن حدود الشريط */
+}
+
+/* الحاوية الداخلية لتوزيع العناصر */
+.nav-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* يكون التوزيع أفقي*/
+    justify-content: space-between; /* اللوجو في طرف والروابط في طرف */
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    box-sizing: border-box; /*عشان ال padding ما يعجق الدنيا*/
+}
+
+/* روابط التنقل */
+.nav-links {
+    list-style: none; /*نشيل النقاط السودا الي بتجي جنب العناصر*/
+    display: flex;
+    gap: 30px; 
+    margin: 0;
+    padding: 0;
+    flex-direction: row ; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f1e6e0 !important;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    opacity: 0.8; /*بخلي لونهم شفاف بشكل بسيط بس نمرر الماوس عليهم*/
+    transition: 0.3s;
+}
+
+/* اللوجو */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    color: #f1e6e0 !important;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: default;
+    text-transform: capitalize;
+}
+
+.navbar::before, .navbar::after { /*بنجهز طبقه اضافيه*/
+    content: ''; /*خلي الطبقه الاضافيه فاضيه*/
+    position: absolute; /*عشان تطفو فوق الشريط*/
+    /*العناصلا الاربعه هدول عشان تمتد الطبقه ع كامل الشريط*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.navbar::before {
+    background-image: url('/uploads/images/nav.jpeg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* تقليل الشفافيه */
+    z-index: 1; /*ترتيب الصوره حيكون في الطبقه الاولى*/
+}
+
+.navbar::after {
+    /*طيب  هون عشان نخلي اللون يمشي بشكل قطري من الغامق للشفاف بحيث الصوره تكون ماشيه مع اتدرج من انها تكون شوي مبينه لمبينه تماما بس مع اللون لسا مغطي عليها*/
+    background: linear-gradient(135deg, rgba(139, 61, 48, 0.95), rgba(139, 61, 48, 0.8));
+    z-index: 2; /*هاي عشان اللون يكون في الطبقه الثانيه و يغطي ع الصوره*/
+}
+
+/* Header */
+.main-header {
+    max-width: 900px;
+    margin: 70px auto 10px auto;
+    text-align: right;
+    padding: 40px 30px;
+}
+
+.page-title {
+    color: #8b3d30;
+    font-size: 30px;
+    margin: 0;
+}
+
+.page-subtitle {
+    color: #8e8379;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+
+/* Card */
+.student-info-card {
+    background-color: rgba(253, 248, 245, 0.7); /*نخليها شفافه عشان النقش الي تحت يبين*/
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 900px;
+    margin: 10px auto 40px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /*انيميشن كمان مره عشان ليه لا*/
+    animation: fadeIn 0.8s ease-out forwards;
+}
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Top Row */
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+/* Student Details Container 
+الي هي معلومات الطالب*/
+.student-details {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;   /*بخلي المعلومات جنب بعض مش تحت بعض*/
+    gap: 15px 30px;
+    text-align: right;
+}
+
+/* Student Name */
+.student-name {
+    width: 100%;       /* ياخذ سطر كامل عشان ما يتداخل مع المعلومات*/
+    font-size: 20px;
+    font-weight: 700;
+    color: #8b3d30;
+    margin-bottom: 10px;
+}
+/*student info*/
+/* تعديلات لكل كمشة معلومات مع بعض */
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.info-label {
+    font-weight: 600;
+    color: #44413e;
+}
+.info-value {
+    color: #7a6e65;
+}
+
+/* Status */
+.student-status {
+    display: inline-block;
+    background-color: #ebdcd5;
+    color: #8b3d30;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.status-container {
+    width: 100%;              /* ياخذ سطر كامل */
+    display: flex;
+    justify-content: center;  /* عشان يكون تحت المعلومات بالنص */
+    margin-top: 10px;
+}
+
+/* GPA Box */
+.gpa-box {
+    background-color: #8b3d30;
+    color: #fdf8f5;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 130px;
+}
+
+.gpa-value {
+    margin: 5px;
+}
+
+/* student image */
+.avatar-circle {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f3ece7;
+}
+
+.profile-image-container {
+    margin-right: 20px;
+}
+/*هاي التعديلات عشان صورة الطالب ما تطلع عن الاطار الي احنا حطيناه اواريدي بتنسيق الصوره فوق*/
+.student-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Progress Bar */
+/*هون كثير استعنت بشات صراحه, التعديل عليها معقد شوي*/
+progress {
+    width: 100%;
+    height: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ebdcd5;
+}
+/*هاي للنص الي تحت البار*/
+.progress-section p {
+    color: #7a6e65;
+    font-size: 13px;
+    text-align: right;
+    margin-top: 8px;
+}
+/*كل متصفح الو تنسيق بار خاص فيه 
+progress::-webkit-
+هاي بتدل انو للمتصفح كروم*/
+/*هاي للبار و الخلفيه نفسها*/
+progress::-webkit-progress-bar {
+    background-color: #ebdcd5;
+    border-radius: 10px;
+}
+/*هاي للقيمه الي جوا البار*/
+progress::-webkit-progress-value {
+    background-color: #8b3d30;
+    border-radius: 10px;
+}
+/* Cards Container */
+.cards-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/*هاي التنسيقات للبطاقتين مع بعض مع اسم البطاقه قبل الاعدادات الي بتخصها*/
+/*مثلا هاي لبطاقة الاحصاءات الاكاديميه*/
+.stat-card {
+    flex: 1;
+    background-color: #fff9f5;
+    border-radius: 20px;
+    padding: 22px;
+    border: 1px solid #f3e3da;
+    box-shadow: 0 4px 12px rgba(139, 61, 48, 0.08);
+}
+
+/* Cards Header */
+/*هاي التنسيقات للبطاقتين مع بعض*/
+.card-header {
+    text-align: right;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ebdcd5;
+    padding-bottom: 12px;
+}
+
+.card-header h3 {
+    color: #8b3d30;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.card-subtitle {
+    color: #9b8b80;
+    font-size: 12px;
+    margin: 0;
+}
+
+/*لبطاقة الاحصاءات*/
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 15px;
+}
+
+.stat-box {
+    flex: 1;
+    background-color: white;
+    border-radius: 16px;
+    padding: 15px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: 1px solid #f0dfd6;
+    transition: all 0.2s;
+}
+
+.stat-label {
+    color: #7a6e65;
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.stat-number {
+    color: #8b3d30;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.stat-unit {
+    color: #b9a89d;
+    font-size: 9px;
+    margin-top: 2px;
+}
+
+/*footer */
+/*الي فيه المعدل و التقييم*/
+.card-footer {
+    background-color: #ebdcd5;
+    border-radius: 14px;
+    padding: 12px 16px;
+    border: 1px solid #e0cdc2;
+}
+
+.gpa-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gpa-rank {
+    color: #5e4b3e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.gpa-badge {
+    background-color: #8b3d30;
+    color: #fdf8f5;
+    padding: 5px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/*تنسيق بطاقات الكورسات و المواد*/
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.course-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: white;
+    border-radius: 14px;
+    border: 1px solid #f0dfd6;
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.course-name {
+    color: #8b3d30;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.course-code {
+    color: #9b8b80;
+    font-size: 11px;
+}
+
+.course-hours {
+    background-color: #f8e9e0;
+    color: #8b3d30;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Courses Footer */
+.courses-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: #ebdcd5;
+    border-radius: 14px;
+    color: #5e4b3e;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.total-hours {
+    background-color: #8b3d30;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+}
+/* لاحظت عندي بتغير حجم كل شي اذا صغرت الشاشه او كبرتها فسألت و اعطاني اعمل هيك و زبطت بس هي توتالي اختياريه عادي */
+@media (max-width: 700px) /*لشاشات الموبايل او التابلت*/{
+    .cards-row {
+        flex-direction: column;
+    }
+    
+    .stats-row {
+        flex-direction: column;
+    }
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #8b3d30;
+    color: #fdf8f5;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 50px;
+    letter-spacing: 1px;
+}
+/*الاشعارات*/
+.notification-wrapper {
+    position: relative;
+    margin-left: auto;
+    margin-right: 30px;
+    z-index: 100;
+}
+
+.notification-bell {
+    cursor: pointer;
+    color: #f1e6e0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.notification-bell:hover {
+    transform: scale(1.1);
+}
+
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    left: -8px;
+    background-color: #ff3b30;
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #8b3d30;
+}
+
+/* النافذة المنبثقة */
+.notification-dropdown {
+    position: absolute;
+    top: 55px; 
+    left: 0;
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    z-index: 10000; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #ebdcd5;
+    animation: slideDown 0.3s ease-out;
+}
+.notification-wrapper {
+    position: relative;
+    z-index: 10001; 
+}
+
+.notification-dropdown.show {
+    display: flex;
+}
+
+.notif-header {
+    background-color: #fdf8f5;
+    padding: 12px;
+    font-weight: 800;
+    color: #8b3d30;
+    font-size: 14px;
+    border-bottom: 1px solid #ebdcd5;
+}
+
+.notif-item {
+    padding: 12px;
+    font-size: 12px;
+    color: #5e4b3e;
+    border-bottom: 1px dotted #ebdcd5;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.notif-item:hover {
+    background-color: #fcf9f7;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* تأثير عند تحويم الماوس على المادة */
+.clickable-course {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-right: 4px solid transparent;
+}
+
+.clickable-course:hover {
+    background-color: #f5f5f5; /* لون خفيف عند التحويم */
+    transform: translateX(-5px); /* حركة بسيطة لليمين (بما أن الصفحة RTL) */
+    border-right-color: #8B4513; /* تلوين الحافة باللون البني المتناسب مع تصميمك */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

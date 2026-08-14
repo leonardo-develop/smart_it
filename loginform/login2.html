@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - جامعة مؤتة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/loginform/style2.css">
+</head>
+<body>
+    <div class="login-box">
+        <img src="/loginform/it.png" alt="شعار الجامعة">
+        <h1>جامعة مؤتة</h1>
+        <h2>كلية تكنولوجيا المعلومات</h2>
+
+        <form id="loginForm" novalidate>
+            <label for="userId">الرقم الجامعي أو الوظيفي</label>
+            <input id="userId" type="text" placeholder="أدخل الرقم هنا..." autocomplete="off">
+            <span id="userIdError" class="error-msg"></span>
+
+            <label for="passwordInput">كلمة المرور</label>
+            <input id="passwordInput" type="password" placeholder="••••••••">
+            <span id="passwordInputError" class="error-msg"></span>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+
+    <script src="/loginform/login.js"></script>
+</body>
+</html>

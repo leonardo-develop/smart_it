@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز المختبرات | Smart IT Faculty</title>
+    <link rel="stylesheet" href="/labs/labbs.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+     <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Smart IT <span class="highlight">Faculty</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/studentinfo/studentprof.html">الملف الشخصي</a></li>
+                <li><a href="/labs/labsavailbale.html" class="active">حجز المختبرات</a></li>
+                <li><a href="/honorboard/honorbo.html">لوحة الشرف</a></li>
+                <li><a href="/instructor_members/iinstruct.html">مدرسي الكلية</a></li>
+                <li><a href="/loginform/login2.html">تسجيل الخروج</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-area">
+        <header class="main-header">
+            <h1 class="page-title">حجز المختبرات الأكاديمية</h1>
+            <p class="page-subtitle">استعرض أوقات تفرغ المختبرات واحجز جهازك للدراسة أو التطبيق العملي.</p>
+        </header>
+
+        <section class="lab-schedule-section full-width">
+            <div class="schedule-card white-card">
+                <h3>جدول تفرغ المختبرات الأسبوعي</h3>
+                <p class="card-subtitle">الأوقات المظللة تمثل محاضرات رسمية، والأوقات البيضاء متاحة للحجز.</p>
+                
+                <div class="table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>المختبر / الوقت</th>
+                                <th>08:00 - 10:00</th>
+                                <th>10:00 - 12:00</th>
+                                <th>12:00 - 02:00</th>
+                                <th>02:00 - 04:00</th>
+                            </tr>
+                        </thead>
+                        <tbody id="labScheduleBody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 20px;">جاري تحميل جدول المختبرات...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="lab-booking-form-section">
+            <div class="booking-card white-card">
+                <h3>طلب حجز جهاز بمختبر</h3>
+                <p class="card-subtitle">يرجى ملء البيانات التالية لتأكيد حجزك.</p>
+                
+                <form class="booking-form" id="labBookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="labSelect">اختر المختبر:</label>
+                            <select id="labSelect" name="lab" required>
+                                <option value="" disabled selected>تحميل المختبرات المتاحة...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateInput">التاريخ:</label>
+                            <input type="date" id="dateInput" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeSelect">وقت البدء:</label>
+                            <input 
+                                type="time" 
+                                id="timeSelect" 
+                                name="time" 
+                                min="08:00" 
+                                max="16:00" 
+                                step="1800" 
+                                required
+                            >
+                            <small style="color: #666; font-size: 0.8rem;">* الدوام متاح من 08:00 ص حتى 04:00 م</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="durationInput">المدة (بالساعات):</label>
+                            <input type="number" id="durationInput" name="duration" min="1" max="4" placeholder="1-4" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="seatInput">رقم الجهاز (اختياري):</label>
+                            <input type="text" id="seatInput" name="seat" placeholder="مثلاً: 5 أو A-12">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn booking-submit">تأكيد الحجز</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="/labs/lb.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة المساق | Smart IT Faculty</title>
+    <link rel="stylesheet" href="dashBoard.css"> 
+    <link rel="stylesheet" href="/syllabus_dash/dashBoard.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span class="logo-text">Smart IT Faculty</span></div>
+            <div class="nav-user">
+                <a href="/studentinfo/studentprof.html" class="nav-profile-link">
+                    <span id="navSTname"></span>
+                    <div class="nav-avatar"><img src="/uploads/images/stpi.jpeg" alt="St"></div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="side-header"><p>قائمة الطالب</p></div>
+            <nav class="side-links">
+                <a href="/syllabus_dash/sylabus.html" class="side-item active">لوحة المساق</a>
+                <a href="/studentinfo/studentprof.html" class="side-item">الملف الشخصي</a>
+                <a href="/honorboard/honorbo.html" class="side-item">لوحة الشرف</a>
+                <a href="/instructor_members/iinstruct.html" class="side-item">مدرسي الكلية</a>
+                <a href="/loginform/login2.html" class="side-item logout-item">تسجيل الخروج</a>
+            </nav>
+            <footer class="side-footer">© 2026 كلية تكنولوجيا المعلومات</footer>
+        </aside>
+
+        <main class="content-area">
+            <header class="main-header">
+                <!-- العنوان سيتم تحديثه برمز المساق واسمه -->
+                <h1 class="page-title">جاري تحميل المساق...</h1>
+                <p class="page-subtitle">مرحباً بك في المساحة التعليمية الشاملة لهذا المساق</p>
+            </header>
+
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="switchTab('materials')">المواد التعليمية</button>
+                <button class="tab-btn" onclick="switchTab('schedule')">الجدول والقاعة</button>
+                <button class="tab-btn" onclick="switchTab('grades')">العلامات والغياب</button>
+                <button class="tab-btn" onclick="switchTab('news')">إعلانات المساق</button>
+            </div>
+
+            <!-- تبويب المواد (يمكن تعبئته لاحقاً بنفس الطريقة) -->
+            <div id="materials" class="tab-content active">
+                <section class="white-card">
+                    <h3>المحاضرات والملفات الدراسية</h3>
+                    <p>لا توجد ملفات مرفوعة حالياً.</p>
+                </section>
+            </div>
+
+            <!-- تبويب الجدول والقاعة -->
+            <div id="schedule" class="tab-content">
+                <section class="white-card">
+                    <h3>تفاصيل الموعد والمكان</h3>
+                    <div class="schedule-details-box">
+                        <div class="room-highlight">--</div>
+                        <p class="building-text">مبنى كلية تكنولوجيا المعلومات</p>
+                        <div class="time-grid">
+                            <div class="time-item"><strong>أيام المحاضرة:</strong> --</div>
+                            <div class="time-item"><strong>الوقت:</strong> --</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- تبويب العلامات والغياب -->
+            <div id="grades" class="tab-content">
+                <!-- التنبيه سيتم تحديث لونه ونصّه بناءً على النسبة -->
+                <div class="alert-box">جاري حساب نسبة الغياب...</div>
+                <section class="white-card">
+                    <h3>سجل العلامات</h3>
+                    <table class="simple-table">
+                        <thead>
+                            <tr><th>البند</th><th>العلامة القصوى</th><th>علامتك</th></tr>
+                        </thead>
+                        <tbody id="gradesTableBody">
+                            <!-- سيتم حقن الصفوف هنا بواسطة dash.js -->
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <!-- تبويب إعلانات المساق (الجدول الجديد) -->
+            <div id="news" class="tab-content">
+                <section class="white-card">
+                    <h3>آخر التبليغات</h3>
+                    <div id="announcementsContainer">
+                        <p>لا توجد إعلانات حالية لهذا المساق.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+     <script src="/syllabus_dash/dash.js"></script>
+</body>
+</html>
