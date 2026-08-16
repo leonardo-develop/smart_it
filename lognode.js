@@ -7,13 +7,25 @@ app.use(express.json());
 app.use(express.static(__dirname));   
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.urlencoded({ extended: true }));
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "1234",  
-    database: "smart_it_hub"
+const db = mysql.createPool({
+    host: process.env.DB_HOST || "localhost",
+    port: Number(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER || "root",
+    password: process.env.DB_PASSWORD || "1234",
+    database: process.env.DB_NAME || "smart_it_hub",
+    // Aiven / TiDB require TLS. Set DB_SSL=true, and paste the provider's
+    // CA certificate into DB_SSL_CA so the server identity is actually verified.
+    ssl: process.env.DB_SSL === "true"
+        ? (process.env.DB_SSL_CA
+            ? { ca: process.env.DB_SSL_CA, rejectUnauthorized: true }
+            : { rejectUnauthorized: true })
+        : undefined,
+    waitForConnections: true,
+    connectionLimit: 5,
+    queueLimit: 0,
+    enableKeepAlive: true
 });
-db.connect((err) => {
+db.query("SELECT 1", (err) => {
     if (err) {
         console.error("خطأ في الاتصال بالقاعدة:", err);
         return;
@@ -74,6 +86,8 @@ app.post("/api/login", (req, res) => {
         });
     });
 });
+// uploads/ is gitignored, so it does not exist on a fresh deploy
+require('fs').mkdirSync(path.join(__dirname, 'uploads'), { recursive: true });
 const storage = multer.diskStorage({
     destination: 'uploads',
     filename: (req, file, cb) => {
@@ -736,6 +750,7 @@ app.get("/api/course-dashboard/:courseCode/:studentId", (req, res) => {
         });
     });
 });
-app.listen(3000, () => {
-    console.log('Server started working at port 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log('Server started working at port ' + PORT);
 });   
