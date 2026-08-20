@@ -7,6 +7,15 @@ function requireAuth(req, res, next) {
     next();
 }
 
+function requirePageAuth(req, res, next) {
+    if (!req.session || !req.session.user) {
+        return res.redirect("/login");
+    }
+
+    req.user = req.session.user;
+    next();
+}
+
 function requireRole(...roles) {
     return (req, res, next) => {
         if (!req.user || !roles.includes(req.user.role)) {
@@ -32,6 +41,7 @@ function requireOwnership(paramName) {
 
 module.exports = {
     requireAuth,
+    requirePageAuth,
     requireRole,
     requireOwnership
 };

@@ -25,9 +25,9 @@ function removeUploadedFiles(files) {
 function validateGradeItem(item, includeFinal) {
     return item &&
         isValidIdentifier(String(item.id)) &&
-        numberInRange(item.participation, 0, 20) &&
-        numberInRange(item.midterm, 0, 30) &&
-        (!includeFinal || numberInRange(item.final, 0, 50));
+        numberInRange(item.participation, 0, 100) &&
+        numberInRange(item.midterm, 0, 100) &&
+        (!includeFinal || numberInRange(item.final, 0, 100));
 }
 
 exports.uploadCourseFiles = (req, res) => {

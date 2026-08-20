@@ -6,13 +6,17 @@ require("./config/db");
 
 const pageRoutes = require("./routes/pages.routes");
 const apiRoutes = require("./routes/index");
-const { requireAuth } = require("./middlewares/auth");
+const { requireAuth, requirePageAuth } = require("./middlewares/auth");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 if (!process.env.SESSION_SECRET) {
     throw new Error("Missing required environment variable: SESSION_SECRET");
+}
+
+if (process.env.NODE_ENV === "production") {
+    app.set("trust proxy", 1);
 }
 
 const ROOT_DIR = path.join(__dirname, "..");
@@ -39,7 +43,7 @@ function serveFrontend(directory, protectedDirectory) {
 
     app.use(`/${directory}`, (req, res, next) => {
         if (protectedDirectory && req.path.endsWith(".html")) {
-            return requireAuth(req, res, next);
+            return requirePageAuth(req, res, next);
         }
 
         next();

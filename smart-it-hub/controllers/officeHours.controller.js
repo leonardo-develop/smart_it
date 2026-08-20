@@ -11,7 +11,7 @@ function validOfficeInterval(start, end) {
     const endMinutes = end.split(":").map(Number);
     const startValue = startMinutes[0] * 60 + startMinutes[1];
     const endValue = endMinutes[0] * 60 + endMinutes[1];
-    return endValue > startValue && endValue - startValue <= 60;
+    return endValue > startValue && endValue - startValue <= 24 * 60;
 }
 
 exports.getOfficeHours = (req, res) => {
