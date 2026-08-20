@@ -1,10 +1,13 @@
 
 const db = require("../config/db");
+const { numberInRange, isValidDate, isValidTime } = require("../utils/validation");
 
 exports.bookLab = (req, res) => {
-    const { student_id, lab_id, booking_date, start_time, duration, seat_number } = req.body;
+    const { lab_id, booking_date, start_time, duration, seat_number } = req.body;
 
-    if (!student_id || !lab_id || !booking_date || !start_time || !duration) {
+    if (!/^\d+$/.test(String(lab_id)) || !isValidDate(booking_date) ||
+        !isValidTime(start_time) || !numberInRange(duration, 0.5, 8) ||
+        (seat_number !== undefined && String(seat_number).length > 32)) {
         return res.status(400).json({ message: "يرجى إكمال جميع الحقول الإلزامية" });
     }
 
@@ -40,7 +43,10 @@ exports.bookLab = (req, res) => {
     ];
 
     db.query(checkConflictSql, queryParams, (err, conflicts) => {
-        if (err) return res.status(500).json({ error: err.message });
+        if (err) {
+            console.error("Lab conflict lookup error:", err);
+            return res.status(500).json({ message: "تعذر التحقق من توفر المختبر" });
+        }
 
         if (conflicts.length > 0) {
             return res.status(400).json({ message: "عذراً، المختبر محجوز لمحاضرة رسمية في هذا الوقت" });
@@ -50,7 +56,7 @@ exports.bookLab = (req, res) => {
             INSERT INTO lab_bookings (student_id, lab_id, booking_date, start_time, duration, seat_number)
             VALUES (?, ?, ?, ?, ?, ?)
         `;
-        db.query(insertBookingSql, [student_id, lab_id, booking_date, start_time, duration, seat_number], (err, result) => {
+        db.query(insertBookingSql, [req.user.id, lab_id, booking_date, start_time, Number(duration), seat_number], (err, result) => {
             if (err) {
                 console.error("SQL Error:", err);
                 return res.status(500).json({ message: "فشل تسجيل الحجز في قاعدة البيانات" });
@@ -69,7 +75,10 @@ exports.getLabOccupancy = (req, res) => {
         JOIN labs l ON s.lab_id = l.lab_id
     `;
     db.query(sql, (err, results) => {
-        if (err) return res.status(500).json({ error: err.message });
+        if (err) {
+            console.error("Lab occupancy lookup error:", err);
+            return res.status(500).json({ error: "تعذر جلب جدول المختبرات" });
+        }
         res.json(results);
     });
 };

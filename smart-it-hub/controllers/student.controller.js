@@ -86,8 +86,8 @@ exports.getCourseDashboard = (req, res) => {
 
     db.query(sqlMain, [studentId, courseCode], (err, results) => {
         if (err) {
-            console.error("SQL Error:", err.sqlMessage);
-            return res.status(500).json({ error: err.sqlMessage });
+            console.error("Course dashboard lookup error:", err);
+            return res.status(500).json({ error: "حدث خطأ في الخادم" });
         }
 
         if (results.length === 0) {
@@ -98,7 +98,10 @@ exports.getCourseDashboard = (req, res) => {
 
         const sqlAnn = "SELECT title, content, created_at FROM announcements WHERE course_code = ? ORDER BY created_at DESC";
         db.query(sqlAnn, [courseCode], (err, annResults) => {
-            if (err) return res.status(500).json({ error: err.message });
+            if (err) {
+                console.error("Announcements lookup error:", err);
+                return res.status(500).json({ error: "حدث خطأ في الخادم" });
+            }
 
             const materials = [];
             if (data.syllabus_path) materials.push({ file_name: "خطة المساق", file_type: "PDF", file_url: "/uploads/" + data.syllabus_path });
