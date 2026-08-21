@@ -1,11 +1,18 @@
 const mysql = require("mysql2");
 require("dotenv").config();
 
+const requiredVariables = ["DB_HOST", "DB_USER", "DB_PASSWORD", "DB_NAME"];
+const missingVariables = requiredVariables.filter((name) => !process.env[name]);
+
+if (missingVariables.length > 0) {
+    throw new Error(`Missing required database environment variables: ${missingVariables.join(", ")}`);
+}
+
 const db = mysql.createConnection({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "root",
-    password: process.env.DB_PASSWORD || "1234",
-    database: process.env.DB_NAME || "smart_it_hub"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 db.connect((err) => {
     if (err) {
